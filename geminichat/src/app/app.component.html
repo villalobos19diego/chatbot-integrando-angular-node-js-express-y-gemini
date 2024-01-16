@@ -1,0 +1,20 @@
+<nav class="navbar navbar-dark bg-dark">
+  <span class="navbar-brand mb-0 h1"><a class="fab fa-google" style="color: #15c4df"></a>GeminiAI</span>
+</nav>
+
+<div class="container">
+  <section class="card mt-3" *ngFor="let response of responses">
+    <header class="card-header bg-dark" style="color: rgb(40, 209, 65)">Chat GeminiAI 💻💻 </header>
+    <div class="card-body">
+      <p>{{response}}</p>
+    </div>
+  </section><br>
+
+  <input class="form-control" [(ngModel)]="userInput" (keyup.enter)="userInput && sendMessage()" placeholder="Gemini Chat...."><br>
+
+  <button class="btn btn-secondary mr-2" (click)="sendMessage()" [disabled]="userInput">
+    <span *ngIf="show"><i class="fas fa-spinner fa-spin"></i></span>Enviar
+  </button>
+
+  <button class="btn btn-danger" (click)="limpiar()"><i class="fas fa-trash-alt"></i>Limpiar</button>
+</div>
